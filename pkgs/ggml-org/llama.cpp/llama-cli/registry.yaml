@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/registry.json
+packages:
+  - name: ggml-org/llama.cpp/llama-cli
+    type: github_release
+    repo_owner: ggml-org
+    repo_name: llama.cpp
+    description: LLM inference in C/C++
+    version_filter: Version matches "^b[0-9]+$"
+    asset: llama-{{.Version}}-bin-ubuntu-x64.tar.gz
+    format: tar.gz
+    supported_envs:
+      - darwin
+      - linux/amd64
+      - windows
+    overrides:
+      - goos: darwin
+        goarch: arm64
+        asset: llama-{{.Version}}-bin-macos-arm64.tar.gz
+      - goos: darwin
+        goarch: amd64
+        asset: llama-{{.Version}}-bin-macos-x64.tar.gz
+      - goos: windows
+        goarch: amd64
+        asset: llama-{{.Version}}-bin-win-cpu-x64.zip
+        format: zip
+      - goos: windows
+        goarch: arm64
+        asset: llama-{{.Version}}-bin-win-cpu-arm64.zip
+        format: zip
+    files:
+      - name: llama-cli
