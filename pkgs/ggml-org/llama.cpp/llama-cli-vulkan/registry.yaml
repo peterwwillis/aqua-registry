@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/registry.json
+packages:
+  - name: ggml-org/llama.cpp/llama-cli-vulkan
+    type: github_release
+    repo_owner: ggml-org
+    repo_name: llama.cpp
+    description: LLM inference in C/C++ (Vulkan GPU backend)
+    version_filter: Version matches "^b[0-9]+$"
+    asset: llama-{{.Version}}-bin-ubuntu-vulkan-x64.tar.gz
+    format: tar.gz
+    supported_envs:
+      - linux/amd64
+      - windows/amd64
+    overrides:
+      - goos: windows
+        goarch: amd64
+        asset: llama-{{.Version}}-bin-win-vulkan-x64.zip
+        format: zip
+    files:
+      - name: llama-cli

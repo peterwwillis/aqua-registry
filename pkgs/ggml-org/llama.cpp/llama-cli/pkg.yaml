@@ -1,0 +1,4 @@
+packages:
+  - name: ggml-org/llama.cpp/llama-cli@b8148
+  - name: ggml-org/llama.cpp/llama-cli
+    version: b8100

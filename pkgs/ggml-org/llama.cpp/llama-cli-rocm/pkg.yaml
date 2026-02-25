@@ -1,0 +1,4 @@
+packages:
+  - name: ggml-org/llama.cpp/llama-cli-rocm@b8148
+  - name: ggml-org/llama.cpp/llama-cli-rocm
+    version: b8126
