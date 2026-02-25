@@ -37520,6 +37520,47 @@ packages:
         format: zip
     files:
       - name: llama-cli
+  - name: ggml-org/llama.cpp/llama-cli-rocm
+    type: github_release
+    repo_owner: ggml-org
+    repo_name: llama.cpp
+    description: LLM inference in C/C++ (ROCm/HIP GPU backend for AMD)
+    version_filter: Version matches "^b[0-9]+$"
+    version_constraint: "false"
+    version_overrides:
+      - version_constraint: Version == "b8123"
+        no_asset: true
+      - version_constraint: "true"
+        asset: llama-{{.Version}}-bin-ubuntu-rocm-7.2-x64.tar.gz
+        format: tar.gz
+        supported_envs:
+          - linux/amd64
+          - windows/amd64
+        overrides:
+          - goos: windows
+            goarch: amd64
+            asset: llama-{{.Version}}-bin-win-hip-radeon-x64.zip
+            format: zip
+        files:
+          - name: llama-cli
+  - name: ggml-org/llama.cpp/llama-cli-vulkan
+    type: github_release
+    repo_owner: ggml-org
+    repo_name: llama.cpp
+    description: LLM inference in C/C++ (Vulkan GPU backend)
+    version_filter: Version matches "^b[0-9]+$"
+    asset: llama-{{.Version}}-bin-ubuntu-vulkan-x64.tar.gz
+    format: tar.gz
+    supported_envs:
+      - linux/amd64
+      - windows/amd64
+    overrides:
+      - goos: windows
+        goarch: amd64
+        asset: llama-{{.Version}}-bin-win-vulkan-x64.zip
+        format: zip
+    files:
+      - name: llama-cli
   - type: github_release
     repo_owner: ginuerzh
     repo_name: gost

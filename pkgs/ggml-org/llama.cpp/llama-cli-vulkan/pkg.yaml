@@ -1,0 +1,4 @@
+packages:
+  - name: ggml-org/llama.cpp/llama-cli-vulkan@b8148
+  - name: ggml-org/llama.cpp/llama-cli-vulkan
+    version: b8126
